@@ -39,7 +39,7 @@ namespace impl
         decltype(auto) operator++ () { increment(Indexes()); return *this; }
 
         template <std::size_t... Is>
-        void increment (std::index_sequence<Is...>) { [](auto&&...){}((std::get<Is>(tup)++)...); }
+        void increment (std::index_sequence<Is...>) { [](auto&&...){}((++std::get<Is>(tup))...); }
 
 
         bool operator == (const ZipIterator& z)
